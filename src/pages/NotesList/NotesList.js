@@ -6,17 +6,20 @@ import { useState } from 'react';
 export default function NotesList() {
   const [notes, setNotes] = useState(null);
 
-  // function fetchData() {
-  //   notesServices.getNotes().then((notes) => console.log(notes));
+  // function componentDidMount() {
+  //   // Simple GET request using fetch
+  //   fetch('http://localhost:3001/notes')
+  //     .then((response) => response.json())
+  //     .then((data) => setNotes({ notes: data.notes }));
   // }
 
-  // fetchData();
+  // componentDidMount();
 
   return (
     <main className='NotesList'>
       {notes ? (
         <>
-          <span>Here are some notes</span>
+          <span>{notes}</span>
         </>
       ) : (
         <span>No Notes Yet!</span>
