@@ -2,8 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import NotesList from '../NotesList/NotesList';
 import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 
@@ -20,8 +19,7 @@ function App() {
           <Routes>
             {' '}
             {/* This path will be assigned to the element NewOrderPage */}
-            <Route path='/orders/new' element={<NewOrderPage />} />
-            <Route path='/orders' element={<OrderHistoryPage />} />
+            <Route path='/notes' element={<NotesList />} />
           </Routes>
         </>
       ) : (

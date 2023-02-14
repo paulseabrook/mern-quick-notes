@@ -12,10 +12,8 @@ export default function NavBar({ user, setUser }) {
     <nav>
       {/* the Link component allows us to change the URL Client-Side only without triggering an HTTP Request */}
       {/* our "to" is the page we are linking to  */}
-      <Link to='/orders'>Order History</Link>
       {/* We can do a "pipe" imbetween our two links */}
-      &nbsp; | &nbsp;
-      <Link to='/orders/new'>New Order</Link>
+      <Link to='/notes'>Notes List</Link>
       &nbsp; | &nbsp;
       <span>welcome, {user.name} </span>
       &nbsp; | &nbsp;

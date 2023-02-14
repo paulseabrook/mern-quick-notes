@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
+
+const noteRoutes = require('./routes/api/notes');
 
 // Always require and configure near the top
 // dotenv module reads the key=value pairs in a .env file
@@ -26,13 +28,13 @@ app.use(express.json());
 // NOTE: Technically, app.use is all middleware
 app.use(require('./config/checkToken'));
 
-// Configure both serve-favicon & static middleware
-// to serve from the production 'build' folder
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// // Configure both serve-favicon & static middleware
+// // to serve from the production 'build' folder
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 // telling our express app to use this directory for our static assets
 app.use(express.static(path.join(__dirname, 'build')));
-
 // Put API routes here, before the "catch all" route
+app.use(noteRoutes);
 // IMPORTANT... THIS ALWAYS NEEDS TO BE BEFORE OUR CATCH ALL BUT AFTER EVERYTHING ELSE
 app.use('/api/users', require('./routes/api/users'));
 
