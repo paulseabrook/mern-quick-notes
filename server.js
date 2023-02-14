@@ -3,6 +3,9 @@ const path = require('path');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
 
+// require cors
+const cors = require('cors');
+
 const noteRoutes = require('./routes/api/notes');
 
 // Always require and configure near the top
@@ -20,6 +23,8 @@ const app = express();
 // ff the first part is true, return the first part,
 // if the first part is false, return the second part
 const PORT = process.env.PORT || 3001;
+
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }));
 
 // logger takes "dev" as an argument
 app.use(logger('dev'));
